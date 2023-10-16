@@ -19,7 +19,7 @@ public class TaskModel {
     @GeneratedValue(generator = "UUID")
     private UUID id;
 
-    private String descicao;
+    private String descricao;
 
     @Column(length = 50)
     private String title;

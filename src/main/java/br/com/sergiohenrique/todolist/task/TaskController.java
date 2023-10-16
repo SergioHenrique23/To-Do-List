@@ -3,6 +3,7 @@ package br.com.sergiohenrique.todolist.task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,11 +16,11 @@ public class TaskController {
     private TaskRepository repository;
 
 
-    
+    @PostMapping("/")
     public ResponseEntity create(@RequestBody TaskModel taskModel){
 
         var taskCreated = this.repository.save(taskModel);
 
-        ResponseEntity.status(HttpStatus.CREATED).body(taskCreated)
+        return ResponseEntity.status(HttpStatus.CREATED).body(taskCreated);
     }
 }
